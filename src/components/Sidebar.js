@@ -2,9 +2,10 @@
 import { ProSidebar, SidebarHeader, SidebarFooter, SidebarContent, SubMenu, Menu, MenuItem, } from 'react-pro-sidebar';
 import 'react-pro-sidebar/dist/css/styles.css';
 import { useState } from 'react';
-import { BsFillArrowRightCircleFill } from 'react-icons/bs'
-import { AiOutlineArrowRight, AiOutlineArrowLeft } from 'react-icons/ai'
+import { AiOutlineArrowRight, AiOutlineArrowLeft, AiFillChrome, AiOutlineDashboard } from 'react-icons/ai'
 import { IconContext } from 'react-icons';
+import mainLogo from '../assets/logo.png'
+
 function Sidebar() {
 
     const [menuCollapse, setmenuCollapse] = useState(true)
@@ -16,9 +17,9 @@ function Sidebar() {
     return (
         <div>
             <div>
-                <ProSidebar width="100%" style={{ height: "100vh" }} collapsed={menuCollapse}>
+                <ProSidebar style= {{height: '100vh', position: 'absolute'}} collapsed={menuCollapse}>
                     <SidebarHeader style={{ height: "10vh"}}>
-
+                     {/* <img  src={mainLogo} style={{height: '100%', width: '100%', backgroundColor: '#FFFF'}}/> */}
                     </SidebarHeader>
                     <SidebarContent style={{flexGrow: 0, position: 'relative', height: 50}}>
                         
@@ -34,11 +35,11 @@ function Sidebar() {
                             
                         </div>
                     </SidebarContent>
-                    <Menu iconShape="square" style={{ flexGrow: 1 }} >
-                        <MenuItem>Dashboard</MenuItem>
-                        <SubMenu title="Components">
-                            <MenuItem>Component 1</MenuItem>
-                            <MenuItem>Component 2</MenuItem>
+                    <Menu iconShape="square" style={{ flexGrow: 1, backgroundColor: '#FFF0' }} >
+                        <MenuItem  icon={<AiOutlineDashboard style={{width : '100%', height: '100%', backgroundColor: '#FFF0'}}/>}>Dashboard</MenuItem>
+                        <SubMenu icon={<AiFillChrome/>} title="Components">
+                            <MenuItem icon={<AiFillChrome/>}>Component 1</MenuItem>
+                            <MenuItem icon={<AiFillChrome/>}>Component 2</MenuItem>
                         </SubMenu>
                     </Menu>
                     <SidebarFooter>
